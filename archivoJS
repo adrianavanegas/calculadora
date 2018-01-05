@@ -10,7 +10,7 @@ var calculadora = {
 	asignarEventoTeclas: function(selector){
 		var teclaNum = document.querySelectorAll(selector);
 		for (var i = 0; i<teclaNum.length;i++) {
-			teclaNum[i].onmouseover = this.eventoReducir;
+			teclaNum[i].onclick = this.eventoReducir;
 			teclaNum[i].onmouseleave = this.eventoRecuperar;
 		};
 	},
