@@ -87,3 +87,24 @@ var calculadora = {
 		this.updateDisplay();
 		}
 	},
+ingresoDecimal: function(){
+		if (this.valorDisplay.indexOf(".")== -1) {
+			if (this.valorDisplay == ""){
+				this.valorDisplay = this.valorDisplay + "0.";
+			} else {
+				this.valorDisplay = this.valorDisplay + ".";
+			}
+			this.updateDisplay();
+		}
+	},	
+	ingresoNumero: function(valor){
+		if (this.valorDisplay.length < 8) {		
+			if (this.valorDisplay=="0") {
+				this.valorDisplay = "";
+				this.valorDisplay = this.valorDisplay + valor;
+			} else {
+				this.valorDisplay = this.valorDisplay + valor;
+			}
+		this.updateDisplay();
+		}
+	},
