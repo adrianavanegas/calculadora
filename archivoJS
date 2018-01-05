@@ -1,1 +1,49 @@
 
+var calculadora = {	
+	display: document.getElementById("display"),
+	valorDisplay: "0",
+	
+	init: (function(){
+		this.asignarEventoTeclas(".tecla");
+		this.asignarEventoFuncion();
+	}),
+	asignarEventoTeclas: function(selector){
+		var teclaNum = document.querySelectorAll(selector);
+		for (var i = 0; i<teclaNum.length;i++) {
+			teclaNum[i].onmouseover = this.eventoReducir;
+			teclaNum[i].onmouseleave = this.eventoRecuperar;
+		};
+	},
+	eventoReducir: function(event){
+		calculadora.reducir(event.target);
+	},
+	eventoRecuperar: function(event){
+		calculadora.recuperar(event.target);
+	},		
+	reducir: function(elemento){
+		var teclaNum = elemento.id;
+		if (teclaNum=="1" || teclaNum=="2" || teclaNum=="3" || teclaNum=="0" || teclaNum=="igual" || teclaNum=="punto" ) {
+			elemento.style.width = "28%";
+			elemento.style.height = "61px";
+		} else if(teclaNum=="mas") {
+			elemento.style.width = "90%";
+			elemento.style.height = "90%";
+		} else {
+			elemento.style.width = "21%";
+			elemento.style.height = "61px";
+		}
+	},
+	recuperar: function(elemento){
+		var teclaNum = elemento.id;
+		
+		if (teclaNum=="1" || teclaNum=="2" || teclaNum=="3" || teclaNum=="0" || teclaNum=="igual" || teclaNum=="punto" ) {
+			elemento.style.width = "29%";
+			elemento.style.height = "62.91px";
+		} else if(teclaNum=="mas") {
+			elemento.style.width = "100%";
+			elemento.style.height = "100%";
+		} else {
+			elemento.style.width = "22%";
+			elemento.style.height = "62.91px";
+		}
+	},
